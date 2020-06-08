@@ -15,9 +15,9 @@ const NavBar = (props) => {
       </div>
       <div className="navbar-right">
         <ul className="navbar-right-list">
-          <NavBarButton link="home" content="Home" />
-          <NavBarButton link="signin" content="Sign In" />
-          <NavBarButton link="signup" content="Sign Up" />
+          <NavBarButton link="/home" class="home" content="Home" />
+          <NavBarButton link="/auth/signin" class="signin" content="Sign In" />
+          <NavBarButton link="/auth/signup" class="signup" content="Sign Up" />
         </ul>
       </div>
     </div>

@@ -15,8 +15,8 @@ function Routes() {
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/auth/signin" component={SignIn} />
+        <Route exact path="/auth/signup" component={SignUp} />
         <Route component={NoMatch} />
       </Switch>
     </div>

@@ -5,10 +5,10 @@ import './navbar-btn.scss';
 const NavBarButton = (props) => {
   return (
     <div>
-      <li className={`navbar-right-list-item ${props.link}`}>
+      <li className={`navbar-right-list-item ${props.class}`}>
         <Link
-          to={`/${props.link}`}
-          className={`navbar-right-list-anchor ${props.link}`}
+          to={props.link}
+          className={`navbar-right-list-anchor ${props.class}`}
         >
           {props.content}
         </Link>
