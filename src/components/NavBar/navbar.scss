@@ -1,0 +1,32 @@
+$darkgrey-color: #333;
+$wedev-color: #8224e3;
+.navbar-container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $darkgrey-color;
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .navbar-left-logo {
+      max-height: 3em;
+      margin: 1em;
+    }
+    .navbar-left-name {
+      font-size: 2em;
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .navbar-right {
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0 1em;
+    }
+  }
+}

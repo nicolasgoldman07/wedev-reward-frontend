@@ -1,0 +1,19 @@
+$darkgrey-color: #333;
+$wedev-color: #8224e3;
+
+.navbar-right-list-anchor {
+  margin: 0 0.5em;
+  padding: 0.3em 1.4em;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: white;
+  color: $darkgrey-color;
+  &.signup {
+    background-color: $wedev-color;
+    color: white;
+  }
+  transition: all 0.3s;
+  &:hover {
+    filter: opacity(0.8);
+  }
+}
