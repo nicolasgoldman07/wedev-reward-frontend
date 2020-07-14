@@ -9,57 +9,69 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`User submitted: ${firstName + lastName + username + password}`);
+    props.signUp({
+      variables: {
+        data: {
+          firstName,
+          lastName,
+          username,
+          password,
+        },
+      },
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <div className="form-input-container">
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="form-input"
-          placeholder="First Name"
-          autoComplete="off"
-          required
-        />
-        <input
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className="form-input"
-          placeholder="Last Name"
-          autoComplete="off"
-          required
-        />
-        <input
-          type="email"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="form-input"
-          placeholder="Email Adress"
-          autoComplete="off"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="form-input last-input"
-          placeholder="Password"
-          required
-        />
-      </div>
+    <div className='form-loading-error-container'>
+      <form
+        onSubmit={handleSubmit}
+        autoComplete='off'
+        className='form-container'
+      >
+        <div className='form-input-container'>
+          <input
+            type='text'
+            name='firstName'
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className='form-input'
+            placeholder='First Name'
+            required
+          />
+          <input
+            type='text'
+            name='lastName'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className='form-input'
+            placeholder='Last Name'
+            required
+          />
+          <input
+            type='email'
+            name='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className='form-input'
+            placeholder='Email Adress'
+            required
+          />
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className='form-input last-input'
+            placeholder='Password'
+            required
+          />
+        </div>
 
-      <button type="submit" className="form-button">
-        Sign Up
-      </button>
-    </form>
+        <button type='submit' className='form-button'>
+          Sign Up
+        </button>
+      </form>
+    </div>
   );
 };
 
