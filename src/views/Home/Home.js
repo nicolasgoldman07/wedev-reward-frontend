@@ -1,9 +1,12 @@
 import React from 'react';
+import { HomeUserInfo as UserInfo } from '../../components/HomeUserInfo';
 
-const Home = (props) => {
+import './home.scss';
+
+const Home = ({ currentUser }) => {
   return (
     <div>
-      <h3>Home Page</h3>
+      <UserInfo currentUser={currentUser} />
     </div>
   );
 };
