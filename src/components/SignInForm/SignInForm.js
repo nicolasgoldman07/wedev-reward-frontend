@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 
 import './signin-form.scss';
 
-const SignInForm = (props) => {
+const SignInForm = ({ onSubmit }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.signIn({
-      variables: {
-        data: {
-          username,
-          password,
-        },
-      },
+    onSubmit({
+      username,
+      password,
     });
   };
 
