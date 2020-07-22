@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './signup-form.scss';
 
-const Form = (props) => {
+const Form = ({ onSubmit }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -9,15 +9,11 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.signUp({
-      variables: {
-        data: {
-          firstName,
-          lastName,
-          username,
-          password,
-        },
-      },
+    onSubmit({
+      firstName,
+      lastName,
+      username,
+      password,
     });
   };
 
