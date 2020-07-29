@@ -21,6 +21,7 @@ $wedev-color: #8224e3;
   padding: 5vh 2vw;
 
   .signin-title {
+    font-size: 25pt;
     color: $darkgrey-color;
     margin: 0;
     padding: 0;
@@ -30,7 +31,7 @@ $wedev-color: #8224e3;
   .without-account {
     color: $darkgrey-color;
     text-decoration: none;
-    margin: 3vh 0;
+    margin: 1vh 0;
     &:hover {
       filter: contrast(5);
     }

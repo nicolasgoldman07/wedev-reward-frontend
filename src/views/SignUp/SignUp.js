@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import useSignUpMutation from '../../hooks/useSignUpMutation';
 import { Link, useHistory } from 'react-router-dom';
-import { SignUpForm } from '../../components/SignUpForm';
+import { SignUpForm } from '../../components/Forms/SignUpForm';
 
 import './signup.scss';
 
@@ -22,7 +22,7 @@ const SignUp = (props) => {
       <h2 className='signup-title'>Member registration</h2>
       <SignUpForm onSubmit={onSubmit} />
       <Link to='/auth/signin' className='already-signedup'>
-        Do you already have an account?
+        Do you already have an account? <u>Login here</u>
       </Link>
       {mutationError && (
         <p className='authError'>
