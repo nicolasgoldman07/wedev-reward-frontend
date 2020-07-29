@@ -1,0 +1,71 @@
+$darkgrey-color: #333;
+$midgrey-color: #888;
+$lightgrey-color: #c9c9c9;
+$superlightgrey-color: #ddd;
+$wedev-color: #8224e3;
+$invalid-color: #c00000;
+$medium-font-size: 12pt;
+$small-font-size: 10pt;
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1vh 0;
+
+    label {
+      color: $darkgrey-color;
+      font-size: $medium-font-size;
+    }
+
+    .form-input {
+      background-color: $superlightgrey-color;
+      font-size: $small-font-size;
+      color: $darkgrey-color;
+      width: 15vw;
+      margin: 1vh 0;
+      padding: 1vh 1vw;
+      border: 1px solid $lightgrey-color;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.2s;
+
+      &:active,
+      &:focus {
+        //border-bottom: 2px solid $midgrey-color;
+        background-color: #eee;
+      }
+      &.last-input {
+        margin-bottom: 3vh;
+      }
+
+      &::placeholder {
+        color: $midgrey-color;
+        font-size: $small-font-size;
+      }
+    }
+
+    .error-message {
+      color: $invalid-color;
+      font-size: $small-font-size;
+    }
+  }
+  .form-button {
+    width: 17vw; //15vw + 2vw of content padding
+    background-color: $wedev-color;
+    color: white;
+    font-size: $medium-font-size;
+    padding: 1vh 2vw;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
