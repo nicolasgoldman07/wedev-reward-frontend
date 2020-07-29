@@ -5,12 +5,10 @@ import { useQuery } from '@apollo/react-hooks';
 import './navbar.scss';
 import NavBarMenu from './NavBarMenu';
 
-import CURRENT_USER from '../../apollo/queries/currentUserQuery';
+import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
 
 const NavBar = (props) => {
-  const { data: userInfo } = useQuery(CURRENT_USER);
-
-  const { currentUser } = userInfo;
+  const { error, loading, currentUser } = useCurrentUserQuery();
   const isLoggedIn = !!currentUser;
 
   return (

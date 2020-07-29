@@ -1,18 +1,21 @@
 import React from 'react';
-import { HomeUserInfo as UserInfo } from '../../components/HomeUserInfo';
+import { UserInfo } from '../../components/UserInfo';
 import { useHistory } from 'react-router-dom';
+
+import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
 
 import './home.scss';
 
-const Home = ({ currentUser }) => {
+const Home = () => {
   const history = useHistory();
+  const { error, loading, currentUser } = useCurrentUserQuery();
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   if (!currentUser) history.push('/auth/signin');
 
-  return (
-    <div>
-      <UserInfo currentUser={currentUser} />
-    </div>
-  );
+  return <div>{currentUser && <UserInfo user={currentUser} />}</div>;
 };
 
 export default Home;

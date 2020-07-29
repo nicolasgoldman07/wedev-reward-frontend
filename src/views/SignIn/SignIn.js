@@ -6,13 +6,17 @@ import useSignInMutation from '../../hooks/useSignInMutation';
 import { useHistory } from 'react-router-dom';
 
 import './signin.scss';
+import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
 
-const SignIn = ({ currentUser }) => {
+const SignIn = () => {
   const history = useHistory();
-  if (currentUser) history.push('/home');
-
-  const { signInUser } = useSignInMutation();
   const [mutationError, setMutationError] = useState(null);
+  const { signInUser } = useSignInMutation();
+  const { error, loading, currentUser } = useCurrentUserQuery();
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  if (currentUser) history.push('/home');
 
   const onSubmit = async (input) => {
     const { authError } = await signInUser(input);
