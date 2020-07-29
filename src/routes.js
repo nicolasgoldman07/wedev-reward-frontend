@@ -8,25 +8,16 @@ import { NoMatch } from './views/NoMatch';
 import { NavBar } from './components/NavBar';
 
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 
-const CURRENT_USER = gql`
-  {
-    currentUser {
-      id
-      username
-      firstName
-      lastName
-    }
-  }
-`;
+import CURRENT_USER from './apollo/queries/currentUserQuery';
 
 function Routes() {
-  const { data: userInfo, loading, error } = useQuery(CURRENT_USER);
+  // prettier-ignore
+  const { data: currentUserInfo, loading: loadingCurrentUser, error: currentUserError } = useQuery(CURRENT_USER);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  const currentUser = userInfo.currentUser;
+  if (loadingCurrentUser) return 'Loading...';
+  if (currentUserError) return `Error! ${currentUserError.message}`;
+  const currentUser = currentUserInfo.currentUser;
 
   return (
     <div>
@@ -37,9 +28,14 @@ function Routes() {
           path='/home'
           render={(props) => <Home {...props} currentUser={currentUser} />}
         />
-        <Route exact path='/auth/signin' component={SignIn} />
+        <Route
+          exact
+          path='/auth/signin'
+          component={SignIn}
+          render={(props) => <SignIn {...props} currentUser={currentUser} />}
+        />
         <Route exact path='/'>
-          <Redirect to='/auth/signin' />
+          <Redirect to='/home' />
         </Route>
         <Route exact path='/auth/signup' component={SignUp} />
         <Route component={NoMatch} />
