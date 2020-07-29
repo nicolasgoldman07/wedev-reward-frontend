@@ -1,21 +1,11 @@
 import React from 'react';
 
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 
 import './navbar.scss';
 import NavBarMenu from './NavBarMenu';
 
-const CURRENT_USER = gql`
-  {
-    currentUser {
-      id
-      username
-      firstName
-      lastName
-    }
-  }
-`;
+import CURRENT_USER from '../../apollo/queries/currentUserQuery';
 
 const NavBar = (props) => {
   const { data: userInfo } = useQuery(CURRENT_USER);
