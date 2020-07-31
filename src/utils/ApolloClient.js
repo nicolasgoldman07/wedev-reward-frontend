@@ -23,7 +23,7 @@ const cache = new InMemoryCache();
 cache.writeData({
   data: {
     jwt: localStorage.getItem('jwt'),
-    //currentUser: localStorage.getItem('currentUser'),
+    currentUser: localStorage.getItem('currentUser'),
   },
 });
 

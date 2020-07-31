@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 export default function LogOutButton() {
   const client = useApolloClient();
   const history = useHistory();
+
   return (
     <button
       className='navbar-right-list-item logout'

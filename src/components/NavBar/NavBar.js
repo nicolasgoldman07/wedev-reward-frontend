@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { useQuery } from '@apollo/react-hooks';
-
 import './navbar.scss';
 import NavBarMenu from './NavBarMenu';
 
 import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
 
 const NavBar = (props) => {
-  const { error, loading, currentUser } = useCurrentUserQuery();
-  const isLoggedIn = !!currentUser;
+  const { currentUser } = useCurrentUserQuery();
 
   return (
     <div className='navbar-container'>
@@ -21,7 +18,7 @@ const NavBar = (props) => {
         />
         <h3 className='navbar-left-name'>WeReward App</h3>
       </div>
-      <NavBarMenu isLoggedIn={isLoggedIn} currentUser={currentUser} />
+      <NavBarMenu currentUser={currentUser} />
     </div>
   );
 };

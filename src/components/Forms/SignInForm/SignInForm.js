@@ -32,7 +32,7 @@ const SignInForm = ({ onSubmit }) => {
             type='username'
             autoComplete='off'
             placeholder='Insert email'
-            className={'form-input'}
+            className='form-input'
           />
         </div>
 

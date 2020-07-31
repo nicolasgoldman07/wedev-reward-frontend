@@ -23,10 +23,10 @@ const useSignUpMutation = () => {
     data,
     loading,
     error,
-    signUpUser: async ({ firstName, lastName, username, password }) => {
+    signUpUser: async (input) => {
       const { data } = await mutate({
         variables: {
-          data: { firstName, lastName, username, password },
+          data: input,
         },
       });
 
