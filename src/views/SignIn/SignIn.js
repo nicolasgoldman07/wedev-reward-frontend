@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { SignInForm } from '../../components/Forms/SignInForm';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { SignInForm } from '../../components/Forms/SignInForm'
 
-import useSignInMutation from '../../hooks/useSignInMutation';
-import { useHistory } from 'react-router-dom';
+import useSignInMutation from '../../hooks/useSignInMutation'
+import { useHistory } from 'react-router-dom'
 
-import './signin.scss';
-import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
+import './signin.scss'
+import useCurrentUserQuery from '../../hooks/useCurrenUserQuery'
 
 const SignIn = () => {
-  const history = useHistory();
-  const [mutationError, setMutationError] = useState(null);
-  const { signInUser } = useSignInMutation();
-  const { error, loading, currentUser } = useCurrentUserQuery();
+  const history = useHistory()
+  const [mutationError, setMutationError] = useState(null)
+  const { signInUser } = useSignInMutation()
+  const { error, loading, currentUser } = useCurrentUserQuery()
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  if (currentUser) history.push('/home');
+  if (loading) return 'Loading...'
+  if (error) return `Error! ${error.message}`
+  if (currentUser) history.push('/home')
 
   const onSubmit = async (input) => {
-    const { authError } = await signInUser(input);
-    setMutationError(authError);
-    if (!authError) history.push('/home');
-  };
+    const { authError } = await signInUser(input)
+    setMutationError(authError)
+    if (!authError) history.push('/home')
+  }
 
   return (
     <div className='signin-container'>
@@ -37,7 +37,7 @@ const SignIn = () => {
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

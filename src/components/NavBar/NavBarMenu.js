@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import NavBarButton from './NavBarButton';
-import LogOutButton from './LogOutButton';
+import NavBarButton from './NavBarButton'
+import LogOutButton from './LogOutButton'
 
-import './navbar.scss';
+import './navbar.scss'
 
 const NavBarMenu = ({ currentUser }) => {
   return (
@@ -21,7 +21,7 @@ const NavBarMenu = ({ currentUser }) => {
         </ul>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default NavBarMenu;
+export default NavBarMenu

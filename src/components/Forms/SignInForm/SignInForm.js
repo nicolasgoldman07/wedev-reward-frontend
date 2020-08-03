@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Field, Form, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 
-import '../auth-form.scss';
+import '../auth-form.scss'
 
 const validationSchema = Yup.object({
   username: Yup.string().email('- Invalid email').required('- Required'),
   password: Yup.string().required('- Required'),
-});
+})
 
-const initialValues = { username: '', password: '' };
+const initialValues = { username: '', password: '' }
 
 const SignInForm = ({ onSubmit }) => {
   return (
@@ -57,7 +57,7 @@ const SignInForm = ({ onSubmit }) => {
         </button>
       </Form>
     </Formik>
-  );
-};
+  )
+}
 
-export default SignInForm;
+export default SignInForm

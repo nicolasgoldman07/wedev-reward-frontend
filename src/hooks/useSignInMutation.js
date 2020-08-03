@@ -1,37 +1,37 @@
-import { useApolloClient, useMutation } from '@apollo/react-hooks';
-import SIGNIN_MUTATION from '../apollo/mutations/signInMutation';
+import { useApolloClient, useMutation } from '@apollo/react-hooks'
+import SIGNIN_MUTATION from '../apollo/mutations/signInMutation'
 
 const useSignInMutation = () => {
-  const client = useApolloClient();
+  const client = useApolloClient()
   const [mutate, { data, loading, error }] = useMutation(SIGNIN_MUTATION, {
     onCompleted: (mutationResponse) => {
-      const { user, jwt, authError } = mutationResponse.signInUser;
+      const { user, jwt, authError } = mutationResponse.signInUser
       if (!authError) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        localStorage.setItem('jwt', jwt);
+        localStorage.setItem('currentUser', JSON.stringify(user))
+        localStorage.setItem('jwt', jwt)
         client.writeData({
           data: { currentUser: user, jwt: jwt },
-        });
+        })
       }
     },
     onError: (mutationError) => {
-      console.log('Mutation Error:', mutationError);
+      console.log('Mutation Error:', mutationError)
     },
-  });
+  })
 
   return {
     data,
     loading,
     error,
-    signInUser: async ({ username, password }) => {
+    signInUser: async (input) => {
       const { data } = await mutate({
         variables: {
-          data: { username, password },
+          data: input,
         },
-      });
+      })
 
-      return data && data.signInUser;
+      return data && data.signInUser
     },
-  };
-};
-export default useSignInMutation;
+  }
+}
+export default useSignInMutation

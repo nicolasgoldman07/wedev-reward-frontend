@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const UserInfo = ({ user }) => {
   return (
@@ -16,7 +16,7 @@ const UserInfo = ({ user }) => {
         <span className='user-username'>Username: {user.username} </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserInfo;
+export default UserInfo

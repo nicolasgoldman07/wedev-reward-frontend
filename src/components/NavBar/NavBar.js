@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import './navbar.scss';
-import NavBarMenu from './NavBarMenu';
+import './navbar.scss'
+import NavBarMenu from './NavBarMenu'
 
-import useCurrentUserQuery from '../../hooks/useCurrenUserQuery';
+import useCurrentUserQuery from '../../hooks/useCurrenUserQuery'
 
 const NavBar = (props) => {
-  const { currentUser } = useCurrentUserQuery();
+  const { currentUser } = useCurrentUserQuery()
 
   return (
     <div className='navbar-container'>
@@ -20,7 +20,7 @@ const NavBar = (props) => {
       </div>
       <NavBarMenu currentUser={currentUser} />
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

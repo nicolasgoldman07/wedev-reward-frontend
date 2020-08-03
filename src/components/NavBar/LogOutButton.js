@@ -1,10 +1,10 @@
-import React from 'react';
-import { useApolloClient } from '@apollo/react-hooks';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import { useApolloClient } from '@apollo/react-hooks'
+import { useHistory } from 'react-router-dom'
 
 export default function LogOutButton() {
-  const client = useApolloClient();
-  const history = useHistory();
+  const client = useApolloClient()
+  const history = useHistory()
 
   return (
     <button
@@ -12,12 +12,12 @@ export default function LogOutButton() {
       onClick={() => {
         client.writeData({
           data: { currentUser: null, jwt: null },
-        });
-        localStorage.clear();
-        history.push('/auth/signin');
+        })
+        localStorage.clear()
+        history.push('/auth/signin')
       }}
     >
       Logout
     </button>
-  );
+  )
 }

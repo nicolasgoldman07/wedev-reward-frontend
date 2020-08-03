@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import useSignUpMutation from '../../hooks/useSignUpMutation';
-import { Link, useHistory } from 'react-router-dom';
-import { SignUpForm } from '../../components/Forms/SignUpForm';
+import useSignUpMutation from '../../hooks/useSignUpMutation'
+import { Link, useHistory } from 'react-router-dom'
+import { SignUpForm } from '../../components/Forms/SignUpForm'
 
-import './signup.scss';
+import './signup.scss'
 
 const SignUp = (props) => {
-  const { error, loading, signUpUser } = useSignUpMutation();
-  const [mutationError, setMutationError] = useState(null);
-  const history = useHistory();
+  const { error, loading, signUpUser } = useSignUpMutation()
+  const [mutationError, setMutationError] = useState(null)
+  const history = useHistory()
 
   const onSubmit = async (input) => {
-    const { authError } = await signUpUser(input);
-    setMutationError(authError);
-    if (!authError) history.push('/home');
-  };
+    const { authError } = await signUpUser(input)
+    setMutationError(authError)
+    if (!authError) history.push('/home')
+  }
 
   return (
     <div className='signup-container'>
@@ -30,7 +30,7 @@ const SignUp = (props) => {
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

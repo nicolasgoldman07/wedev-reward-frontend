@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import './nomatch.scss';
+import './nomatch.scss'
 
 const NoMatch = (props) => {
   return (
@@ -34,7 +34,7 @@ const NoMatch = (props) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NoMatch;
+export default NoMatch

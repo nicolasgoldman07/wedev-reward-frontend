@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './navbar-btn.scss';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './navbar-btn.scss'
 
 const NavBarButton = (props) => {
   return (
@@ -12,7 +12,7 @@ const NavBarButton = (props) => {
         {props.content}
       </Link>
     </li>
-  );
-};
+  )
+}
 
-export default NavBarButton;
+export default NavBarButton

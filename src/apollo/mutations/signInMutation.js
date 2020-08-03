@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from 'graphql-tag'
 
 export default gql`
   mutation SignInUser($data: SigninInput!) {
@@ -13,4 +13,4 @@ export default gql`
       authError
     }
   }
-`;
+`
