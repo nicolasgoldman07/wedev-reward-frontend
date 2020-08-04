@@ -1,0 +1,29 @@
+$darkgrey-color: #333;
+$midgrey-color: #888;
+$lightgrey-color: #c9c9c9;
+$wedev-color: #8224e3;
+
+.user-info-container {
+  width: 100vw;
+  background-color: rgba($midgrey-color, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 0;
+  .user-profilePic {
+    max-width: 30vh;
+    margin-bottom: 3vh;
+    transition: 0.3s all;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  .user-fullName {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1vh;
+  }
+}

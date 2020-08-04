@@ -1,18 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { SignUpForm } from '../../components/SignUpForm';
-import './signup.scss';
+import React, { useState } from 'react'
+
+import useSignUpMutation from '../../hooks/useSignUpMutation'
+import { Link, useHistory } from 'react-router-dom'
+import { SignUpForm } from '../../components/Forms/SignUpForm'
+
+import './signup.scss'
 
 const SignUp = (props) => {
-  return (
-    <div className="signup-container">
-      <h2 className="signup-title">Member registration</h2>
-      <SignUpForm />
-      <Link to="/auth/signin" className="already-signedup">
-        Do yo already have an account?
-      </Link>
-    </div>
-  );
-};
+  const { error, loading, signUpUser } = useSignUpMutation()
+  const [mutationError, setMutationError] = useState(null)
+  const history = useHistory()
 
-export default SignUp;
+  const onSubmit = async (input) => {
+    const { authError } = await signUpUser(input)
+    setMutationError(authError)
+    if (!authError) history.push('/home')
+  }
+
+  return (
+    <div className='signup-container'>
+      <h2 className='signup-title'>Member registration</h2>
+      <SignUpForm onSubmit={onSubmit} />
+      <Link to='/auth/signin' className='already-signedup'>
+        Do you already have an account? <u>Login here</u>
+      </Link>
+      {mutationError && (
+        <p className='authError'>
+          Register error: <strong>{mutationError}</strong>
+        </p>
+      )}
+    </div>
+  )
+}
+
+export default SignUp

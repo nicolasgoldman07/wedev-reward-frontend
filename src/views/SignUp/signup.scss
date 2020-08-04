@@ -21,6 +21,7 @@ $wedev-color: #8224e3;
   padding: 5vh 2vw;
 
   .signup-title {
+    font-size: 20pt;
     color: $darkgrey-color;
     margin: 0;
     padding: 0;
@@ -30,9 +31,17 @@ $wedev-color: #8224e3;
   .already-signedup {
     color: $darkgrey-color;
     text-decoration: none;
-    margin-top: 3vh;
+    margin: 1vh 0;
     &:hover {
       filter: contrast(5);
     }
+  }
+
+  .authError {
+    background-color: rgb(202, 53, 53);
+    font-size: 15px;
+    padding: 0.5em 2em;
+    border-radius: 20px;
+    color: white;
   }
 }
